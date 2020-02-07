@@ -1,0 +1,267 @@
+//1
+SubProceso res<-numeros2(n1,n2,n3)
+	//Deberá pedir 3 números y mostrar el promedio de estos.
+	Definir promedio, res Como Real
+	Definir suman Como Real
+	
+	suman<-n1+n2+n3
+	promedio<-suman/3
+	res<-promedio
+	Escribir "el promedio es ", res
+FinSubProceso
+
+
+//2
+SubProceso genero(x)
+	//En un lugar tradicional antiguo se pedirá Nombre y Género de la persona, siendo el género 
+	//determinante para derivarlo al baño de mujeres u hombres.
+	si x == "H"
+		Escribir "Derivar al baño de Hombres"
+	SiNo
+		si x == "M"
+			Escribir " Derivar al baño de Mujeres"
+		FinSi
+	
+	
+	FinSi
+	Escribir res
+FinSubProceso
+
+//3
+SubProceso banhoadicional(respuesta)
+	//Considerar función 2, y adicionar cobro de $250 si desea utilizar el baño o $ 2.500 si desea utilizar la ducha. 
+	si respuesta== 1
+		Escribir "$250 si desea utilizar el baño"
+	SiNo
+		si respuesta== 0
+			Escribir "$ 2.500 si desea utilizar la ducha"
+		FinSi
+		
+	FinSi
+	Escribir res
+FinSubProceso
+
+//4
+SubProceso numeroPalabra(num)
+	//Ingrese un número del 1 al 10 y mostrar el número en palabras
+	Segun num Hacer
+		1:
+			Escribir "uno"
+		2:
+			Escribir "dos"
+		3:
+			Escribir "tres"
+		4:
+			Escribir "cautro"
+		5:
+			Escribir "cinco"
+		6:
+			Escribir "seis"
+		7:
+			Escribir "siete"
+		8:
+			Escribir "ocho"
+		9:
+			Escribir "nueve"
+		10:
+			Escribir "diez"
+		De Otro Modo:
+			Escribir "opcion no valida"
+	Fin Segun
+	
+	Escribir res
+FinSubProceso
+
+//5
+SubProceso listadonumeros()
+	
+	Escribir "Ingrese un numero: "
+	leer num
+	cont<-1
+sum<-sum+num
+	Mientras num <> 0 hacer
+	
+		Escribir "Ingrese un numero: "
+		leer num
+		cont<-cont+1
+		sum<-sum+num
+	FinMientras
+	Escribir "numeros totales: ",cont-1
+	Escribir "Suma Total: ",sum
+	Escribir "Promedio: ",sum/(cont-1)
+FinSubProceso
+
+//6
+//Ingresar N nombres con "J", cuando ingrese el nombre "Juan" me diga "Ganaste" y muestre la cantidad de intentos antes de haber ganado.
+SubProceso ingresandoJuan()
+	
+	Repetir
+		Escribir "Ingrese nombre"
+		leer nombreIngresado
+		cont<-cont+1
+		
+	Hasta Que nombreIngresado = "Juan"
+	Escribir "la cantidad de intentos antes de haber ganado es: ",cont-1 
+FinSubProceso
+
+//7 
+//Para un máximo de 10 personas preguntar su nombre y mostrar los que repiten más de 1 vez, en caso que 
+//los nombres no se repitan mostrar que no existen nombres repetidos
+SubProceso nombresrepetidos(consultacantidad)
+	Definir cantidad como entero
+	cantidad<-consultacantidad
+	Dimension listado1[consultacantidad]
+	Dimension repetidos[consultacantidad]
+	encontrado = Falso
+	Para i<-1 Hasta cantidad Con Paso 1 Hacer
+		Escribir "Ingrese Nombre para persona ",i
+		leer nombre
+		listado1[i]<-nombre
+		
+	Fin Para
+	Para i<-1 Hasta cantidad Con Paso 1 Hacer
+		
+		Para j<-1 Hasta cantidad Con Paso 1 Hacer
+			si	(listado1[i] == listado1[j] y i<>j  )
+				encontrado = Verdadero
+			FinSi
+			
+		FinPara
+	Fin Para
+	
+	si encontrado = Falso
+		Escribir "no hay repetidos"
+	SiNo
+		si encontrado = Verdadero
+			Escribir "hay repetidos"
+		FinSi
+		
+		
+	FinSi
+FinSubProceso
+
+//8
+//Pedir el tamaño de un arreglo en el cual debo ingresar la lista de Talentos Digitales Full Satck Java
+//para luego desplegarlos en pantalla con un máximo de 5 alumnos por línea
+SubProceso talentos(tamanho)
+	Dimension arraytalentos[tamanho]
+	Definir contunidades como Entero
+	contunidades =0
+
+	Para i<-1 Hasta tamanho Con Paso 1 Hacer
+		Escribir "Ingrese Nombre de Talentos Digitales Full Satck Java"
+		leer nombre
+		arraytalentos[i]<-nombre
+		cont<-cont+1
+		
+	Fin Para
+	Para i<-1 Hasta tamanho Con Paso 1 Hacer
+		Escribir Sin Saltar arraytalentos[i],", "
+		si (i MOD 5) = 0 Entonces			
+			Escribir "******************"
+		
+		Fin si
+		
+	Fin Para
+	
+	
+FinSubProceso
+
+//9
+//Ingresar nombre, apellido, fono y email de cada participante del curso Full 
+//Satck Java Trainee, mostrar todos los datos de cada alumno en 1 línea
+SubProceso datosParticipantesTalento(cantidadparticipantes)
+	Dimension datos[cantidadparticipantes,4]
+	
+		
+		Para i<-1 Hasta cantidadparticipantes Con Paso 1 Hacer 			
+			
+			Escribir "Ingrese Nombre del participante ",i
+			Leer nombre
+			Escribir "Ingrese Apellido del participante ",i
+			leer apellido
+			Escribir "Ingrese Fono del participante ",i
+			leer fono
+			Escribir "Ingrese Email del participante ",i
+			leer email
+		FinPara
+	
+FinSubProceso
+
+Proceso prueba1
+	
+	
+	Repetir
+		// mostrar menu
+		Limpiar Pantalla
+		Escribir "Menú de operaciones"
+		Escribir "   1. Secuencial"
+		Escribir "   2. Condicional Si entonces"
+		Escribir "   3. Condicional Si entonces anidado"
+		Escribir "   4. Condicional según"
+		Escribir "   5. Repetitiva Mientras"
+		Escribir "   6. Repetitiva Repetir"
+		Escribir "   7. repetitiva Para"
+		Escribir "   8. Arreglo Simple"
+		Escribir "   9. Arreglo Bidimensional"
+		Escribir "   10. Salir"
+		// ingresar una opcion
+		Escribir "Elija una opción (1-10): "
+		Leer OP
+		// procesar esa opción
+		Segun OP Hacer
+			1:
+				Escribir "ingrese Número 1"
+				Leer n1
+				Escribir "ingrese Número 2"
+				Leer n2
+				Escribir "ingrese Número 3"
+				Leer n3
+				res<-numeros2(n1,n2,n3)
+			2:
+				Escribir " Ingrese genero Hombre(H)- Mujer (M):"
+				Leer x
+				genero(x)
+			3:
+				Escribir " Ingrese genero Hombre(H)- Mujer (M): "
+				Leer x
+				genero(x)
+				Escribir "Desea baño(1)- Ducha (0) -"
+				leer respuesta
+				banhoadicional(respuesta)
+				
+			4:
+				Escribir "Ingrese Numero"
+				Leer num
+				numeroPalabra(num)
+			5:
+				
+				listadonumeros()
+			
+			6: 
+				ingresandoJuan()
+			7: 	
+				Hacer
+					Escribir "Ingrese la cantidad de personas, máximo 10"
+					leer consultacantidad
+					
+				Hasta Que consultacantidad <=10
+				nombresrepetidos(consultacantidad)
+				
+				
+			8: Escribir "Ingrese la cantidad de talentos"
+				leer tamanho
+				talentos(tamanho)	
+					
+			9: 	Escribir "Ingrese la cantidad de participantes para registrar:"
+				leer cantidadparticipantes
+				datosParticipantesTalento(cantidadparticipantes)	
+				
+			De otro modo:
+				Escribir "Opción no válida"
+		FinSegun
+		Escribir "Presione enter para continuar"
+		Esperar Tecla
+	Hasta Que OP=5
+	
+FinProceso
